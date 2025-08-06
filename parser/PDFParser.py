@@ -9,7 +9,7 @@ class PDFParser:
             language="en",
         )
 
-    async def parse_pdf(self, pdf_url: str) -> list:
-        result = await self.parser.aparse(pdf_url)
+    def parse_pdf(self, pdf_url: str) -> list:
+        result = self.parser.parse(pdf_url)
         markdown_docs = result.get_markdown_documents(split_by_page=True)
         return markdown_docs
